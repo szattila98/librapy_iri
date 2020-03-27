@@ -1,0 +1,5 @@
+.bookRow:hover {
+    cursor: pointer;
+    background: lightblue;
+}
+

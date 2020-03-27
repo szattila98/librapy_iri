@@ -1,0 +1,30 @@
+<div class="row text-center">
+    <div class="col-lg-12">
+        <h2>Welcome to Alexandria Eternal!</h2>
+        <table id="books" class="table text-">
+            <thead>
+                <tr>
+                    <th class="text-center">Title</th>
+                    <th class="text-center">Description</th>
+                    <th class="text-center">Borrowed</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat='book in books' class="bookRow" ng-click="toggleBorrowed(book)">
+                    <td>
+                        <label class="text-primary" data-toggle="tooltip">{{ book.title }}</label>
+                    </td>
+                    <td>
+                        <label class="text-primary" data-toggle="tooltip">{{ book.description }}</label>
+                    </td>
+                    <td>
+                        <label>
+                            <input type="checkbox" class="custom-control-input" ng-model='book.is_borrowed' disabled/>
+                        </label>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <button id="add_new_item" ui-sref="add-book" class='btn btn-primary btn-lg'>Add a new book</button>
+    </div>
+</div>

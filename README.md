@@ -1,4 +1,4 @@
-# Librapy
+# Assignment
 It's a book borrow registry web application. The backend was built with Python Django framework. The frontend uses AngularJS.
 
 ## Requirements
