@@ -18,3 +18,14 @@ It's a book borrow registry web application. The backend was built with Python D
 - To run
 
 `python manage.py runserver ${port}`
+
+- Usage
+
+Api doc is available at
+
+`localhost:${port}/api/`
+
+UI available at
+
+`localhost:${port}`
+

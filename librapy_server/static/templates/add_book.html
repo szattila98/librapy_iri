@@ -1,10 +1,10 @@
 <div class='row text-center'>
 	<div class='col-lg-12'>
-		<h1>New Book</h1>
+		<h2>New Book</h2>
 		<input id="title" type="text" class="form-control" ng-model="newBook.title"
 			   placeholder="What is the books title?" aria-describedby="sizing-addon1"/>
 		<textarea id="description" name="textarea" class="form-control" rows="5" ng-model="newBook.description"
-				  placeholder="Please enter the description of the book!"></textarea>
+				  placeholder="Please enter the description of the book!" maxlength="100"></textarea>
 		<button id="add" class='btn btn-success btn-lg' ng-click="addBook()">Add</button>
 		<button id="cancel" ui-sref="home" class='btn btn-info btn-lg'>Go back</button>
 	</div>

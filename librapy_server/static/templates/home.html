@@ -1,42 +1,52 @@
 <div class="row text-center">
     <div class="col-lg-12">
-        <h2>Welcome to Alexandria Eternal!</h2>
-        <p>Click on a book to borrow it!</p>
-        <p>Then it will magically appear in your dreams afterwards!</p>
-        <p>It may or may not haunt you, though!</p>
-        <table id="books" class="table text-">
+        <h1>Welcome to Alexandria Eternal!</h1>
+        <div class="row">
+            <div class="col-lg-9 text-left">
+                <p>Borrow books by clicking the button with the book icon! Then it will wondrously appear in your dreams
+                    afterwards!</p>
+                <p>Be sure to return it after a while with the same button, because the ghosts of the library may or may
+                    not haunt you!</p>
+                <p>If you add a new book to the collection with the button on the right, we will forever be
+                    grateful!</p>
+            </div>
+            <div class="col-lg-3 text-center">
+                <button id="add_new_item" ui-sref="add-book" class='btn btn-lg newBook'>Add a new book</button>
+            </div>
+        </div>
+        <table id="books" class="table table-hover">
             <thead>
             <tr>
                 <th class="text-center">Title</th>
                 <th class="text-center">Description</th>
-                <th class="text-center">Borrowed</th>
+                <th class="text-center">Is it Borrowed?</th>
                 <th class="text-center">Actions</th>
             </tr>
             </thead>
             <tbody>
             <tr ng-repeat='book in books' class="bookRow">
                 <td>
-                    <label class="text-primary">{{ book.title }}</label>
+                    <label>{{ book.title }}</label>
                 </td>
                 <td>
-                    <label class="text-primary">{{ book.description }}</label>
+                    <label>{{ book.description }}</label>
                 </td>
                 <td>
-                    <label>
-                        <input type="checkbox" class="custom-control-input" ng-model='book.is_borrowed' disabled/>
-                    </label>
+                    <i class="fa fa-check" ng-show="book.is_borrowed"></i>
+                    <i class="fa fa-close" ng-hide="book.is_borrowed"></i>
                 </td>
                 <td>
-                    <button class="btn btn-success" ng-click="toggleBorrowed(book)">
-                        <i class="fa fa-book"></i>
+                    <button class="btn btn-success" ng-click="toggleBorrowed(book)"
+                            title="Borrow Book">
+                        <i class="fa fa-book" ng-hide="book.is_borrowed"></i>
+                        <i class="fa fa-arrow-right" ng-show="book.is_borrowed"></i>
                     </button>
-                    <button class="btn btn-danger" ng-click="removeBook(book)">
+                    <button class="btn btn-danger" ng-click="removeBook(book)" title="Delete Book">
                         <i class="fa fa-trash"></i>
                     </button>
                 </td>
             </tr>
             </tbody>
         </table>
-        <button id="add_new_item" ui-sref="add-book" class='btn btn-primary btn-lg'>Add a new book</button>
     </div>
 </div>
