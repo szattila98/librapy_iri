@@ -39,6 +39,10 @@ app.controller('MainCtrl', function ($scope, $rootScope, Books, $state, $filter)
         });
     };
 
+    $scope.valid = function () {
+        return !($scope.newBook.title && $scope.newBook.description);
+    };
+
     $scope.removeBook = function (book) {
         Books.delete(book).then(function () {
             Books.all().then(function (res) {

@@ -5,7 +5,7 @@
 			<div class="col-lg-10 col-lg-offset-1">
 				<label for="title" class="newBookLabels">Title</label>
 				<input id="title" name="title" type="text" class="form-control newBookInputs" ng-model="newBook.title"
-					   placeholder="What is the books title?" aria-describedby="sizing-addon1"/>
+					   placeholder="What is the books title?" aria-describedby="sizing-addon1" maxlength="50"/>
 				<label for="description" class="newBookLabels">Description</label>
 				<input id="description" name="description" class="form-control newBookInputs"
 					   ng-model="newBook.description"
@@ -13,7 +13,8 @@
 			</div>
 		</div>
 		<div class="text-center">
-			<button id="add" class='btn btn-success btn-lg newBookButtons' ng-click="addBook()"><i
+			<button id="add" class='btn btn-success btn-lg newBookButtons' ng-click="addBook()"
+					ng-disabled="valid()"><i
 					class="fa fa-plus fa-fw"></i>Add
 			</button>
 			<button id="cancel" ui-sref="home" class='btn newBook btn-lg newBookButtons'><i
