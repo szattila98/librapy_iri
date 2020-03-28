@@ -6,8 +6,6 @@ app.config(function ($stateProvider, $urlRouterProvider, $httpProvider) {
     $httpProvider.defaults.xsrfCookieName = 'csrftoken'
     $httpProvider.defaults.xsrfHeaderName = 'X-CSRFToken'
 
-    $('[data-toggle="tooltip"]').tooltip();
-
     $stateProvider
         .state('home', {
             url: '/',
@@ -39,7 +37,15 @@ app.controller('MainCtrl', function ($scope, $rootScope, Books, $state, $filter)
             // redirect to homepage once added
             $state.go('home');
         });
-    }
+    };
+
+    $scope.removeBook = function (book) {
+        Books.delete(book).then(function () {
+            Books.all().then(function (res) {
+                $scope.books = res.data;
+            })
+        });
+    };
 });
 
 app.service('Books', function ($http, API_URL) {
@@ -56,6 +62,10 @@ app.service('Books', function ($http, API_URL) {
 
     Books.create = function (newBook) {
         return $http.post(`${API_URL}`, newBook);
+    };
+
+    Books.delete = function (delBook) {
+        return $http.delete(`${API_URL}${delBook.id}/`)
     };
 
     return Books
