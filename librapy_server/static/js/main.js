@@ -15,7 +15,7 @@ app.config(function ($stateProvider, $urlRouterProvider, $httpProvider) {
             controller: 'MainCtrl'
         })
         .state('add-book', {
-            url: "/add",
+            url: "/add-book",
             templateUrl: '/static/templates/add_book.html',
             controller: 'MainCtrl'
         });
@@ -24,13 +24,22 @@ app.config(function ($stateProvider, $urlRouterProvider, $httpProvider) {
 });
 
 app.controller('MainCtrl', function ($scope, $rootScope, Books, $state, $filter) {
+    Books.all().then(function (res) {
+        $scope.books = res.data;
+    });
+
     $scope.toggleBorrowed = function (book) {
         Books.update(book);
     };
 
-    Books.all().then(function (res) {
-        $scope.books = res.data;
-    });
+    $scope.newBook = {};
+
+    $scope.addBook = function () {
+        Books.create($scope.newBook).then(function (res) {
+            // redirect to homepage once added
+            $state.go('home');
+        });
+    }
 });
 
 app.service('Books', function ($http, API_URL) {
@@ -43,6 +52,10 @@ app.service('Books', function ($http, API_URL) {
     Books.update = function (updatedBook) {
         updatedBook.is_borrowed = !updatedBook.is_borrowed
         return $http.patch(`${API_URL}${updatedBook.id}/`, updatedBook);
+    };
+
+    Books.create = function (newBook) {
+        return $http.post(`${API_URL}`, newBook);
     };
 
     return Books
