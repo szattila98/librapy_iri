@@ -1,11 +1,24 @@
-<div class='row text-center'>
+<div class='row'>
 	<div class='col-lg-12'>
 		<h2>New Book</h2>
-		<input id="title" type="text" class="form-control" ng-model="newBook.title"
-			   placeholder="What is the books title?" aria-describedby="sizing-addon1"/>
-		<textarea id="description" name="textarea" class="form-control" rows="5" ng-model="newBook.description"
-				  placeholder="Please enter the description of the book!" maxlength="100"></textarea>
-		<button id="add" class='btn btn-success btn-lg' ng-click="addBook()">Add</button>
-		<button id="cancel" ui-sref="home" class='btn btn-info btn-lg'>Go back</button>
+		<div class="row">
+			<div class="col-lg-10 col-lg-offset-1">
+				<label for="title" class="newBookLabels">Title</label>
+				<input id="title" name="title" type="text" class="form-control newBookInputs" ng-model="newBook.title"
+					   placeholder="What is the books title?" aria-describedby="sizing-addon1"/>
+				<label for="description" class="newBookLabels">Description</label>
+				<input id="description" name="description" class="form-control newBookInputs"
+					   ng-model="newBook.description"
+					   placeholder="Please enter the description of the book!" maxlength="100"/>
+			</div>
+		</div>
+		<div class="text-center">
+			<button id="add" class='btn btn-success btn-lg newBookButtons' ng-click="addBook()"><i
+					class="fa fa-plus fa-fw"></i>Add
+			</button>
+			<button id="cancel" ui-sref="home" class='btn newBook btn-lg newBookButtons'><i
+					class="fa fa-undo fa-fw"></i>Go back
+			</button>
+		</div>
 	</div>
 </div>

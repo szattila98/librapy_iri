@@ -20,11 +20,12 @@ h1 {
 
 h2 {
     color: black;
-    font-size: 30px;
+    font-size: 40px;
     font-weight: 800;
-    line-height: 36px;
-    margin: 0 0 24px;
+    line-height: 72px;
     text-align: center;
+    text-transform: uppercase;
+    margin: 30px 0 20px;
 }
 
 p {
@@ -76,4 +77,21 @@ td {
     line-height: 32px;
     margin-left: 40px;
     margin-top: -12px;
+}
+
+.newBookInputs {
+    margin: 20px;
+    height: 60px;
+    font-size: 23px;
+}
+
+.newBookLabels {
+    margin-left: 2%;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.newBookButtons {
+    font-size: 25px;
+    margin: 20px;
 }
